@@ -1,0 +1,154 @@
+site_name: Open Lab Notes
+site_description: Technical documentation and lab notes covering homelab experiments, systems administration, high-performance computing, containerization, advanced networking and storage, and infrastructure automation as part of my continued learning.
+site_url: https://openlabnotes.dev
+site_author: Philip B Haworth
+repo_url: https://github.com/yourusername/open-lab-notes
+repo_name: yourusername/open-lab-notes
+
+theme:
+  name: material
+  # logo: assets/logo.png           # Add if you have a logo
+  # favicon: assets/favicon.ico     # Add if you have a favicon
+  features:
+    - content.action.edit           # Edit button on pages
+    - content.code.annotate         # Code annotations
+    - content.code.copy             # Copy code buttons
+    - content.tooltips              # Enhanced tooltips
+    - navigation.tabs               # Top-level tabs
+    - navigation.sections           # Collapsible sections
+    - navigation.footer             # Previous/next navigation
+    - navigation.indexes            # Section index pages
+    - navigation.top                # Back to top button
+    - navigation.tracking           # URL tracking
+    - search.highlight              # Highlight search terms
+    - search.suggest                # Search suggestions
+    - toc.follow                    # Follow table of contents
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey             # Professional color for technical docs
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - blog:
+        blog_dir: notes
+        blog_toc: true
+        post_url_format: "{date}/{slug}"    # Include date in URLs
+        post_date_format: medium
+        archive_date_format: yyyy
+        post_readtime: true                 # Show estimated reading time
+        post_readtime_words_per_minute: 200
+        categories_allowed:                 # Optional: restrict categories
+          - homelab
+          - automation
+          - infrastructure
+          - systems
+          - learning
+  - tags
+  - git-revision-date-localized:    # Shows last update dates
+      type: date
+      fallback_to_build_date: true
+      enable_creation_date: true
+      enabled: true
+  - glightbox:                      # Image lightbox for screenshots
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+  - minify:                         # Optimize HTML/CSS/JS
+      minify_html: true
+
+# Optional: Add if you want RSS feeds for your lab notes
+#  - rss:
+#      match_path: "notes/posts/.*"
+#      date_from_meta:
+#        as_creation: date.created
+#        as_update: date.updated
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/philipbhaworth
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/philiphaworth/
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Documentation:
+      - Infrastructure: 
+          - infrastructure/index.md
+      - Automation: 
+          - automation/index.md
+      - Systems: 
+          - systems/index.md
+  - Lab Notes: notes/
+
+markdown_extensions:
+  # Code highlighting and formatting
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets              # Include external files
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
+  # Content organization
+  - admonition
+  - pymdownx.details              # Collapsible sections
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+      toc_depth: 3
+  
+  # Text formatting and special elements
+  - attr_list                     # Add CSS classes and attributes
+  - md_in_html                    # Markdown inside HTML
+  - footnotes                     # Footnote references
+  - pymdownx.mark                 # Highlight text ==highlighted==
+  - pymdownx.caret                # Superscript text^super^
+  - pymdownx.tilde                # Subscript text~sub~
+  - pymdownx.keys                 # Keyboard shortcuts ++ctrl+c++
+  
+  # Technical documentation features
+  - pymdownx.tasklist:            # GitHub-style task lists
+      custom_checkbox: true
+  - def_list                      # Definition lists for glossaries
+  - abbr                          # Abbreviation tooltips
+  
+  # Icons and emojis
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+docs_dir: docs
+
+copyright: |
+  &copy; 2025 <a href="https://github.com/philipbhaworth" target="_blank" rel="noopener">Philip B Haworth</a>
