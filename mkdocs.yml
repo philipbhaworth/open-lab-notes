@@ -2,8 +2,8 @@ site_name: Open Lab Notes
 site_description: Technical documentation and lab notes covering homelab experiments, systems administration, high-performance computing, containerization, advanced networking and storage, and infrastructure automation as part of my continued learning.
 site_url: https://openlabnotes.dev
 site_author: Philip B Haworth
-repo_url: https://github.com/yourusername/open-lab-notes
-repo_name: yourusername/open-lab-notes
+repo_url: https://github.com/philipbhaworth/open-lab-notes
+repo_name: philipbhaworth/open-lab-notes
 
 theme:
   name: material

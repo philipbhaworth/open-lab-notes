@@ -158,12 +158,29 @@ docs/notes/posts/2025-02-01-storage-migration.md
 
 ## 🚀 Deployment
 
-The site automatically deploys to Cloudflare Pages when changes are pushed to the main branch.
+The site can be deployed using **Cloudflare Workers** (recommended) or Cloudflare Pages.
+
+### Option 1: Cloudflare Workers (Recommended)
+
+**Build & Deploy Commands:**
+- **Build command**: `mkdocs build --clean`
+- **Deploy command**: `npx wrangler pages deploy site`
+- **Output directory**: `site`
+
+**Setup:**
+1. Install Wrangler CLI: `npm install -g wrangler`
+2. Login to Cloudflare: `wrangler login`
+3. Create project: `wrangler pages create open-lab-notes`
+4. Deploy: `npx wrangler pages deploy site`
+
+### Option 2: Cloudflare Pages (Alternative)
 
 **Build Settings:**
-- Build command: `mkdocs build --clean`
-- Output directory: `site`
-- Framework preset: None
+- **Build command**: `mkdocs build --clean`
+- **Output directory**: `site`
+- **Framework preset**: None
+
+The site automatically deploys when changes are pushed to the main branch.
 
 ## 🎨 Features
 
